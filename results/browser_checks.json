@@ -1,0 +1,14 @@
+{
+  "checks": [
+    "balanced: headline metrics, every matrix cell, all status/actual/prediction filter combinations and row IDs match saved output",
+    "binary: headline metrics, every matrix cell, all status/actual/prediction filter combinations and row IDs match saved output",
+    "Emotion filters, search, empty state, nonzero chart widths, palette switch, mobile page width and no JavaScript errors"
+  ],
+  "browser": "Chromium",
+  "viewport": {
+    "width": 1440,
+    "height": 1060
+  },
+  "status": "passed",
+  "dashboard_sha256": "7d8ccc5fc49f767b2fb7a4ba22ffd185222fbf1733a0e0157b303722130744b5"
+}

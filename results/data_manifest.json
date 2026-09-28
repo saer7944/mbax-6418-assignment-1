@@ -1,0 +1,22 @@
+{
+  "source_url": "https://mcauleylab.ucsd.edu/public_datasets/data/amazon_2023/raw/review_categories/Gift_Cards.jsonl.gz",
+  "dataset_page": "https://amazon-reviews-2023.github.io/",
+  "source_sha256": "e03a258ebd7b1e2591b09862aab65d3dcde9c300744d800aa1fbaf374b7c2340",
+  "total_reviews": 152410,
+  "rating_counts": {
+    "1": 12326,
+    "2": 1873,
+    "3": 3271,
+    "4": 6692,
+    "5": 128248
+  },
+  "class_counts": {
+    "POSITIVE": 134940,
+    "NEGATIVE": 14199,
+    "NEUTRAL": 3271
+  },
+  "seed": 6418,
+  "sampling": "single-pass stratified reservoir, 50 per class, sorted by source line",
+  "nrc_url": "https://saifmohammad.com/WebDocs/Lexicons/NRC-Emotion-Lexicon.zip",
+  "nrc_sha256": "02c661544f4f12ae0c14f9576a10959e8d39a151bb091e455a71a08dcaa2535a"
+}
