@@ -1,5 +1,5 @@
 """Download and reproducibly sample the complete source; standard library only."""
-import argparse, collections, gzip, hashlib, json, random, urllib.request, zipfile
+import argparse, collections, gzip, hashlib, json, random, shutil, ssl, urllib.request, zipfile
 from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 DATA_URL = 'https://mcauleylab.ucsd.edu/public_datasets/data/amazon_2023/raw/review_categories/Gift_Cards.jsonl.gz'
@@ -17,7 +17,15 @@ def main():
     data=ROOT/'data'; data.mkdir(exist_ok=True)
     for name,url in [('Gift_Cards.jsonl.gz',DATA_URL),('NRC-Emotion-Lexicon.zip',NRC_URL)]:
         target=data/name
-        if not target.exists(): urllib.request.urlretrieve(url,target)
+        if not target.exists():
+            context=ssl.create_default_context()
+            # Some macOS Python installations omit the OS CA roots.
+            system_ca=Path('/etc/ssl/cert.pem')
+            if system_ca.exists(): context.load_verify_locations(cafile=str(system_ca))
+            partial=target.with_suffix(target.suffix+'.part')
+            with urllib.request.urlopen(url,context=context,timeout=120) as response, partial.open('wb') as output:
+                shutil.copyfileobj(response,output)
+            partial.replace(target)
     with zipfile.ZipFile(data/'NRC-Emotion-Lexicon.zip') as z:
         names=[n for n in z.namelist() if n.endswith('NRC-Emotion-Lexicon-Wordlevel-v0.92.txt') and '__MACOSX' not in n]
         if len(names)!=1: raise ValueError(f'Expected one English word lexicon, found {names}')
