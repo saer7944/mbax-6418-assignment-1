@@ -6,7 +6,7 @@ The model agrees with star ratings on **97.0%** of the first batch, but only **7
 
 Download this repository and open **[dashboard.html](dashboard.html)** in a browser. It is a single offline file; GitHub's file view shows its source rather than running it. The dashboard includes both evaluations, confusion matrices, class metrics, descriptive charts, emotion comparisons, searchable review text, and filters with live counts. The palette button switches themes; CSS variables support further recoloring.
 
-![Dashboard overview](assets/dashboard-overview.png)
+![Dashboard overview](assets/dashboard-overview-current.png)
 
 ## Data and approach
 
@@ -68,7 +68,7 @@ The methods agree on **25/150 (16.7%)** and disagree on **125**. There are **24*
 
 The category's vocabulary and tie rule help explain this: “gift” is associated with anticipation, joy and surprise, so alphabetical selection often favors anticipation. **GC-008976** has tied anticipation/joy/surprise scores; NRC returns anticipation while the LLM returns joy. **GC-004448** praises quality; the LLM returns joy but NRC finds no matching emotion words. **GC-006014** expresses disappointment about damage; the LLM returns sadness while NRC selects anticipation from a tie. Emotion agreement measures consistency, not accuracy: no human emotion labels were supplied, and the LLM can also misread the review.
 
-![Filtered review evidence](assets/dashboard-evidence.png)
+![Filtered review evidence](assets/dashboard-evidence-current.png)
 
 ## Issues encountered and verification
 

@@ -2,6 +2,7 @@
   "checks": [
     "balanced: headline metrics, every matrix cell, all status/actual/prediction filter combinations and row IDs match saved output",
     "binary: headline metrics, every matrix cell, all status/actual/prediction filter combinations and row IDs match saved output",
+    "Regression checks: trimmed ID search, readable HTML/entities, inert markup, keyboard review expansion, active-run accessibility state, binary star colors, combined emotion/status filters, no external requests, and layouts from 320 to 1440 pixels",
     "Emotion filters, search, empty state, nonzero chart widths, palette switch, mobile page width and no JavaScript errors"
   ],
   "browser": "Chromium",
@@ -10,5 +11,5 @@
     "height": 1060
   },
   "status": "passed",
-  "dashboard_sha256": "7d8ccc5fc49f767b2fb7a4ba22ffd185222fbf1733a0e0157b303722130744b5"
+  "dashboard_sha256": "e3a5792280da5c55f6451bd2cab24a86a72361ecab94b052b18bc4af22cbeaf8"
 }
